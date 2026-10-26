@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeamPulse - Workforce & Attendance Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23080c15'/%3E%3Cpath d='M6 16h5l2.5-6 4 12 3-8 2.5 4h5' fill='none' stroke='%2306b6d4' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+</head>
+<body>
+  <div class="app-container">
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="14" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+              <path d="M6 16h4.5l2.5-6 4 12 3-8 2.5 4h5.5" stroke="url(#pulse-gradient)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="pulse-gradient" x1="6" y1="16" x2="26" y2="16" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#06b6d4"/>
+                  <stop offset="0.5" stop-color="#8b5cf6"/>
+                  <stop offset="1" stop-color="#ec4899"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-team">Team</span><span class="brand-pulse">Pulse</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-role-label">COMPANY OWNER</div>
+
+      <nav class="sidebar-nav">
+        <a href="#dashboard" class="nav-item active" data-page="dashboard">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="#employees" class="nav-item" data-page="employees">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Employees</span>
+        </a>
+        <a href="#attendance" class="nav-item" data-page="attendance">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Attendance</span>
+        </a>
+        <a href="#leaves" class="nav-item" data-page="leaves">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Leaves</span>
+        </a>
+        <a href="#projects" class="nav-item" data-page="projects">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><line x1="9" y1="4" x2="9" y2="20"/><line x1="15" y1="4" x2="15" y2="20"/></svg>
+          <span>Projects</span>
+        </a>
+        <a href="#chat" class="nav-item" data-page="chat">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span>Chat</span>
+        </a>
+        <a href="#announcements" class="nav-item" data-page="announcements">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+          <span>Announcements</span>
+        </a>
+        <a href="#history" class="nav-item" data-page="history">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><polyline points="12 7 12 12 15 15"/></svg>
+          <span>Employee History</span>
+        </a>
+        <a href="#bank" class="nav-item" data-page="bank">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          <span>Bank approvals</span>
+        </a>
+        <a href="#teams" class="nav-item" data-page="teams">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Teams</span>
+        </a>
+        <a href="#roles" class="nav-item" data-page="roles">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Roles & Permissions</span>
+        </a>
+        <a href="#analytics" class="nav-item" data-page="analytics">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span>Analytics</span>
+        </a>
+        <a href="#audit" class="nav-item" data-page="audit">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 8 14"/><path d="M4 12a8 8 0 0 1 8-8"/></svg>
+          <span>Activity log</span>
+        </a>
+        <a href="#settings" class="nav-item" data-page="settings">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span>Settings</span>
+        </a>
+        <a href="#profile" class="nav-item" data-page="profile">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Profile</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="#logout" class="nav-item logout-link" onclick="handleLogout(event)">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          <span>Log out</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN WRAPPER -->
+    <div class="main-wrapper">
+      <!-- TOP HEADER -->
+      <header class="top-header">
+        <div class="header-search-container">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" class="header-search-input" id="globalSearch" placeholder="Search people, tasks, projects..." autocomplete="off">
+        </div>
+
+        <div class="header-right">
+          <!-- Toggle Demo Mode -->
+          <button class="demo-toggle-btn" id="demoModeBtn" title="Switch between pristine empty state (as in screenshots) and populated demo data">
+            <span class="demo-dot"></span>
+            <span class="demo-text">Empty State (Exact)</span>
+          </button>
+
+          <span class="user-greeting">mr diu</span>
+
+          <button class="header-icon-btn" title="Notifications" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </button>
+
+          <div class="user-avatar-badge" title="mr diu">RA</div>
+        </div>
+      </header>
+
+      <!-- PAGE CONTENT CONTAINER -->
+      <main class="page-content" id="pageContainer">
+        <!-- Views will be dynamically or statically toggled here -->
+
+        <!-- 1. DASHBOARD VIEW -->
+        <section id="view-dashboard" class="page-view active">
+          <div class="page-header">
+            <h1 class="page-title">Dashboard</h1>
+            <p class="page-subtitle">Company snapshot for today.</p>
+          </div>
+
+          <!-- 4 Stat Cards -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon-wrapper user-icon-bg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="stat-value" id="dashTotalEmployees">0</div>
+              <div class="stat-label">Total employees</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-wrapper rounded-icon-bg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/></svg>
+              </div>
+              <div class="stat-value" id="dashPresentToday">0</div>
+              <div class="stat-label">Present today</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-wrapper calendar-icon-bg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div class="stat-value" id="dashOnLeave">0</div>
+              <div class="stat-label">On leave</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-wrapper clock-icon-bg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="stat-value" id="dashPendingApprovals">0</div>
+              <div class="stat-label">Pending approvals</div>
+            </div>
+          </div>
+
+          <!-- Team pulse activity strip -->
+          <div class="card pulse-strip-card">
+            <div class="pulse-header">
+              <div class="pulse-title">Team pulse</div>
+              <div class="pulse-subtitle">This week's activity</div>
+            </div>
+            <div class="pulse-chart-container">
+              <div class="pulse-segment">
+                <svg viewBox="0 0 200 40" class="pulse-svg">
+                  <path d="M0 20 L80 20 L90 5 L100 35 L108 20 L200 20" stroke="#b45309" stroke-width="2" fill="none" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="pulse-segment">
+                <svg viewBox="0 0 200 40" class="pulse-svg">
+                  <path d="M0 20 L80 20 L92 3 L102 37 L110 20 L200 20" stroke="#b45309" stroke-width="2" fill="none" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="pulse-segment">
+                <svg viewBox="0 0 200 40" class="pulse-svg">
+                  <path d="M0 20 L80 20 L88 4 L98 36 L105 20 L200 20" stroke="#b45309" stroke-width="2" fill="none" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="pulse-segment">
+                <svg viewBox="0 0 200 40" class="pulse-svg">
+                  <path d="M0 20 L75 20 L85 8 L95 32 L102 20 L200 20" stroke="#b45309" stroke-width="2" fill="none" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="pulse-segment">
+                <svg viewBox="0 0 200 40" class="pulse-svg">
+                  <path d="M0 20 L90 20 L95 18 L100 22 L105 20 L200 20" stroke="#b45309" stroke-width="2" fill="none" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Two split cards: Who's in today & Pending approvals -->
+          <div class="grid-2-col">
+            <div class="card">
+              <div class="card-heading">Who's in today</div>
+              <div class="dashed-box" id="dashWhosInBox">
+                No members yet.
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-heading">Pending approvals</div>
+              <div class="dashed-box" id="dashPendingBox">
+                Nothing waiting for approval.
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Row: Mini Calendar & Announcements -->
+          <div class="dashboard-bottom-grid">
+            <!-- Calendar Card -->
+            <div class="card calendar-card">
+              <div class="calendar-nav">
+                <button class="cal-arrow-btn" id="calPrev">&lt;</button>
+                <div class="cal-month-title" id="calMonthTitle">October 2026</div>
+                <button class="cal-arrow-btn" id="calNext">&gt;</button>
+              </div>
+              <div class="calendar-days-header">
+                <span>SU</span><span>MO</span><span>TU</span><span>WE</span><span>TH</span><span class="weekend-day">FR</span><span class="weekend-day">SA</span>
+              </div>
+              <div class="calendar-grid" id="calendarDaysGrid">
+                <!-- Dynamically populated or rendered for October 2026 -->
+              </div>
+              <div class="calendar-legend">
+                <div class="legend-item"><span class="legend-box red-box"></span> Weekend</div>
+                <div class="legend-item"><span class="legend-box amber-box"></span> Holiday</div>
+              </div>
+            </div>
+
+            <!-- Announcements Card -->
+            <div class="card announcements-dash-card">
+              <div class="announcements-header-row">
+                <div class="card-heading">Announcements</div>
+                <div class="card-actions">
+                  <button class="btn btn-outline-sm" onclick="openModal('announcementModal')">Post</button>
+                  <button class="btn btn-outline-sm" onclick="navigateTo('announcements')">View all</button>
+                </div>
+              </div>
+              <div class="empty-state-text" id="dashAnnouncementsContent">
+                No recent announcements.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. EMPLOYEES VIEW -->
+        <section id="view-employees" class="page-view">
+          <div class="page-header">
+            <h1 class="page-title">Employees</h1>
+            <p class="page-subtitle">0 of 1 members used on the Free plan.</p>
+          </div>
+
+          <div class="table-actions-bar">
+            <div class="search-input-wrapper">
+              <svg class="search-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" class="input-rounded" placeholder="Search..." id="employeeSearch">
+            </div>
+            <button class="btn btn-primary" onclick="openModal('employeeModal')">+ Invite employee</button>
+          </div>
+
+          <div class="card table-card">
+            <div class="table-responsive">
+              <table class="data-table" id="employeesTable">
+                <thead>
+                  <tr>
+                    <th>NAME</th>
+                    <th>ROLE</th>
+                    <th>TEAM</th>
+                    <th>STATUS</th>
+                    <th>ACTIONS</th>
+                  </tr>
+                </thead>
+                <tbody id="employeesTableBody">
+                  <tr class="empty-row">
+                    <td colspan="5">No results</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-pagination">
+              <div class="pagination-left">
+                Rows per page
+                <select class="select-sm">
+                  <option>10</option>
+                  <option>25</option>
+                  <option>50</option>
+                </select>
+              </div>
+              <div class="pagination-right">
+                <span id="employeesPageCount">Showing 0-0 of 0</span>
+                <div class="pagination-controls">
+                  <button class="page-nav-btn" disabled>&lt;</button>
+                  <button class="page-num-btn active">1</button>
+                  <button class="page-nav-btn" disabled>&gt;</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. ATTENDANCE VIEW -->
+        <section id="view-attendance" class="page-view">
+          <div class="page-header">
+            <h1 class="page-title">Attendance</h1>
+            <p class="page-subtitle">Live presence, updating as your team signs in and out.</p>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon-wrapper user-icon-bg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="stat-value" id="attPresentNow">0</div>
+              <div class="stat-label">Present now</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-wrapper clock-icon-bg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="stat-value" id="attOnBreak">0</div>
+              <div class="stat-label">On break</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-wrapper calendar-icon-bg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div class="stat-value" id="attOnLeave">0</div>
+              <div class="stat-label">On leave</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-wrapper history-icon-bg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 8 14"/><path d="M4 12a8 8 0 0 1 8-8"/></svg>
+              </div>
+              <div class="stat-value" id="attOffline">0</div>
+              <div class="stat-label">Offline</div>
+            </div>
+          </div>
+
+          <!-- Who's in right now -->
+          <div class="card table-card">
+            <div class="card-heading-padded">Who's in right now</div>
+            <div class="table-actions-inline">
+              <div class="search-input-wrapper">
+                <svg class="search-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" class="input-rounded" placeholder="Search..." id="whosInSearch">
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>NAME</th>
+                    <th>TEAM</th>
+                    <th>STATUS</th>
+                    <th>SINCE</th>
+                  </tr>
+                </thead>
+                <tbody id="whosInTableBody">
+                  <tr class="empty-row">
+                    <td colspan="4">No results</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-pagination">
+              <div class="pagination-left">
+                Rows per page
+                <select class="select-sm">
+                  <option>10</option>
+                  <option>25</option>
+                </select>
+              </div>
+              <div class="pagination-right">
+                <span>Showing 0-0 of 0</span>
+                <div class="pagination-controls">
+                  <button class="page-nav-btn" disabled>&lt;</button>
+                  <button class="page-num-btn active">1</button>
+                  <button class="page-nav-btn" disabled>&gt;</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Daily log card -->
+          <div class="card table-card">
+            <div class="accordion-header" onclick="toggleDailyLog()">
+              <div class="card-heading">Daily log</div>
+              <svg class="chevron-icon" id="dailyLogChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="accordion-content" id="dailyLogContent">
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>DAY</th>
+                      <th>SIGN IN</th>
+                      <th>SIGN OUT</th>
+                      <th>BREAK</th>
+                      <th>WORKED</th>
+                    </tr>
+                  </thead>
+                  <tbody id="dailyLogTableBody">
+                    <tr class="empty-row">
+                      <td colspan="5">No sessions yet.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. LEAVES VIEW -->
+        <section id="view-leaves" class="page-view">
+          <div class="page-header">
+            <h1 class="page-title">Leaves</h1>
+            <p class="page-subtitle">One approval decides each request. Who can approve is set in Roles & Permissions. You can approve any request directly at any step.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-heading">Pending approvals</div>
+            <div class="empty-banner-box" id="leavesPendingBox">
+              Nothing waiting for approval.
+            </div>
+          </div>
+
+          <div class="card mt-4">
+            <div class="card-heading">On leave now</div>
+            <div class="empty-banner-box" id="leavesOnLeaveBox">
+              Nobody is on leave today.
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. PROJECTS VIEW -->
+        <section id="view-projects" class="page-view">
+          <div class="page-header">
+            <h1 class="page-title">Projects</h1>
+            <p class="page-subtitle">Boards, extra time requests, activity, and reports.</p>
+          </div>
+
+          <!-- Navigation tabs -->
+          <div class="tabs-nav">
+            <button class="tab-link active" onclick="switchProjectTab('boards', this)">Boards</button>
+            <button class="tab-link" onclick="switchProjectTab('requests', this)">Requests</button>
+            <button class="tab-link" onclick="switchProjectTab('activity', this)">Activity log</button>
+            <button class="tab-link" onclick="switchProjectTab('report', this)">Report</button>
+            <button class="tab-link" onclick="switchProjectTab('labels', this)">Labels</button>
+          </div>
+
+          <!-- Tab Content: Boards -->
+          <div id="project-tab-boards" class="project-tab-content active">
+            <div class="centered-empty-card" id="projectsEmptyState">
+              <div class="empty-state-icon board-icon-bg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><line x1="9" y1="4" x2="9" y2="20"/><line x1="15" y1="4" x2="15" y2="20"/></svg>
+              </div>
+              <h2 class="empty-title">No projects yet</h2>
+              <p class="empty-desc">Create your first project to start a board.</p>
+              <button class="btn btn-primary" onclick="openModal('projectModal')">+ New project</button>
+            </div>
+
+            <!-- Kanban Board (populated in demo mode) -->
+            <div class="kanban-board-wrapper hidden" id="projectsKanbanView">
+              <div class="kanban-column">
+                <div class="kanban-col-header">To Do <span class="badge">2</span></div>
+                <div class="kanban-cards">
+                  <div class="kanban-card">
+                    <h4>Design Design System</h4>
+                    <p>Setup tokens and responsive views</p>
+                    <div class="kanban-meta"><span class="tag">Design</span><span class="due">Oct 30</span></div>
+                  </div>
+                  <div class="kanban-card">
+                    <h4>Auth Refactoring</h4>
+                    <p>OAuth flow testing and audit</p>
+                    <div class="kanban-meta"><span class="tag tag-blue">Backend</span><span class="due">Nov 2</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="kanban-column">
+                <div class="kanban-col-header">In Progress <span class="badge">1</span></div>
+                <div class="kanban-cards">
+                  <div class="kanban-card">
+                    <h4>UI Pixel Perfect Clone</h4>
+                    <p>Implement all 18 screenshot views</p>
+                    <div class="kanban-meta"><span class="tag tag-amber">High</span><span class="due">Today</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="kanban-column">
+                <div class="kanban-col-header">Done <span class="badge">1</span></div>
+                <div class="kanban-cards">
+                  <div class="kanban-card">
+                    <h4>Project Setup</h4>
+                    <p>Repository and asset initialization</p>
+                    <div class="kanban-meta"><span class="tag tag-green">Done</span><span class="due">Oct 26</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Other tabs -->
+          <div id="project-tab-requests" class="project-tab-content">
+            <div class="empty-banner-box">No extra time requests found.</div>
+          </div>
+          <div id="project-tab-activity" class="project-tab-content">
+            <div class="empty-banner-box">No project activities recorded yet.</div>
+          </div>
+          <div id="project-tab-report" class="project-tab-content">
+            <div class="empty-banner-box">No progress reports generated for this cycle.</div>
+          </div>
+          <div id="project-tab-labels" class="project-tab-content">
+            <div class="empty-banner-box">Default tags: Feature, Bug, Enhancement, Documentation.</div>
+          </div>
+        </section>
+
+        <!-- 6. CHAT VIEW -->
+        <section id="view-chat" class="page-view">
+          <div class="page-header">
+            <h1 class="page-title">Chat</h1>
+            <p class="page-subtitle">Message a teammate directly, or post in a team channel. Use @ to mention.</p>
+          </div>
+
+          <div class="card chat-layout-card">
+            <!-- Left Channel sidebar -->
+            <div class="chat-sidebar-pane">
+              <div class="chat-search-row">
+                <input type="text" class="input-rounded-sm" placeholder="Search people & channels" id="chatSearch">
+                <button class="btn btn-outline-sm btn-icon-only" title="New Group" onclick="openModal('groupChatModal')">+ Group</button>
+              </div>
+
+              <div class="channel-list">
+                <div class="channel-item active" data-channel="general">
+                  <div class="channel-hash">#</div>
+                  <div class="channel-details">
+                    <div class="channel-name">#general</div>
+                    <div class="channel-sub">Company channel</div>
+                  </div>
+                </div>
+                <div class="channel-item hidden" id="demoChannelRandom" data-channel="random">
+                  <div class="channel-hash">#</div>
+                  <div class="channel-details">
+                    <div class="channel-name">#announcements</div>
+                    <div class="channel-sub">Team news</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Chat Area -->
+            <div class="chat-main-area">
+              <div class="chat-header-bar">
+                <div class="chat-channel-badge">#</div>
+                <div class="chat-header-info">
+                  <div class="chat-title">#general</div>
+                  <div class="chat-desc">Company channel</div>
+                </div>
+              </div>
+
+              <div class="chat-messages-container" id="chatMessagesContainer">
+                <div class="chat-notice-pill">
+                  Messages are kept for 30 days. Older messages are removed automatically.
+                </div>
+                <div class="chat-empty-message" id="chatEmptyMessage">
+                  No messages yet. Say hello.
+                </div>
+                <div class="chat-message-list" id="chatMessageList">
+                  <!-- Messages injected here -->
+                </div>
+              </div>
+
+              <form class="chat-input-bar" id="chatForm" onsubmit="handleSendChatMessage(event)">
+                <input type="text" class="chat-text-input" id="chatInput" placeholder="Message #general... use @ to mention" autocomplete="off">
+                <button type="submit" class="btn btn-primary btn-send">Send</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. ANNOUNCEMENTS VIEW -->
+        <section id="view-announcements" class="page-view">
+          <div class="page-header-with-action">
+            <div>
+              <h1 class="page-title">Announcements</h1>
+              <p class="page-subtitle">Company-wide posts. Everyone can read them; posting is permission-based.</p>
+            </div>
+            <button class="btn btn-primary" onclick="openModal('announcementModal')">+ Post announcement</button>
+          </div>
+
+          <h2 class="section-title">History</h2>
+
+          <div class="centered-empty-card" id="announcementsEmptyCard">
+            <div class="empty-state-icon megaphone-icon-bg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+            </div>
+            <h2 class="empty-title">No announcements yet</h2>
+            <p class="empty-desc">Post the first one for your team.</p>
+            <button class="btn btn-primary" onclick="openModal('announcementModal')">+ Post announcement</button>
+          </div>
+
+          <div class="announcements-list-wrapper hidden" id="announcementsListWrapper">
+            <!-- Announcement cards populated here -->
+          </div>
+        </section>
+
+        <!-- 8. EMPLOYEE HISTORY VIEW -->
+        <section id="view-history" class="page-view">
+          <div class="page-header-with-action">
+            <div>
+              <h1 class="page-title">Employee history</h1>
+              <p class="page-subtitle">Hours, overtime, missing time, sign-in reasons and leaves per employee. Default shows the running month.</p>
+            </div>
+            <button class="btn btn-outline" onclick="exportCsvDemo()">Export CSV</button>
+          </div>
+
+          <!-- Date Filters Row -->
+          <div class="history-filter-row">
+            <div class="time-pills">
+              <button class="time-pill" onclick="selectTimePill(this, 'Today')">Today</button>
+              <button class="time-pill" onclick="selectTimePill(this, '7 days')">7 days</button>
+              <button class="time-pill" onclick="selectTimePill(this, '15 days')">15 days</button>
+              <button class="time-pill" onclick="selectTimePill(this, '30 days')">30 days</button>
+              <button class="time-pill active" onclick="selectTimePill(this, 'This month')">This month</button>
+            </div>
+
+            <div class="date-range-picker">
+              <div class="date-input-group">
+                <input type="text" placeholder="dd/mm/yyyy" class="date-input" value="01/10/2026">
+                <svg class="date-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <span class="range-to-text">to</span>
+              <div class="date-input-group">
+                <input type="text" placeholder="dd/mm/yyyy" class="date-input" value="31/10/2026">
+                <svg class="date-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="showToast('Date range applied')">Apply</button>
+            </div>
+          </div>
+
+          <div class="filter-status-text" id="historyRangeText">Showing: This month</div>
+
+          <div class="table-actions-inline">
+            <div class="search-input-wrapper">
+              <svg class="search-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" class="input-rounded" placeholder="Search..." id="historySearch">
+            </div>
+          </div>
+
+          <!-- History Table -->
+          <div class="card table-card">
+            <div class="table-responsive">
+              <table class="data-table history-table">
+                <thead>
+                  <tr>
+                    <th>EMPLOYEE</th>
+                    <th>OFFICE HOURS</th>
+                    <th>DAYS PRESENT</th>
+                    <th>HOURS WORKED</th>
+                    <th>TASKS COMPLETED</th>
+                    <th>OVERTIME</th>
+                    <th>MISSING</th>
+                    <th>LATE</th>
+                    <th>EARLY</th>
+                    <th>SIGNED IN AGAIN</th>
+                    <th>AUTO SIGN-OUTS</th>
+                    <th>ADMIN SIGN-OUTS</th>
+                    <th>PAID LEAVE (YR)</th>
+                    <th>NON-PAID LEAVE (YR)</th>
+                  </tr>
+                </thead>
+                <tbody id="historyTableBody">
+                  <tr class="empty-row">
+                    <td colspan="14">No results</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="table-pagination">
+              <div class="pagination-left">
+                Rows per page
+                <select class="select-sm">
+                  <option>10</option>
+                  <option>25</option>
+                </select>
+              </div>
+              <div class="pagination-right">
+                <span>Showing 0-0 of 0</span>
+                <div class="pagination-controls">
+                  <button class="page-nav-btn" disabled>&lt;</button>
+                  <button class="page-num-btn active">1</button>
+                  <button class="page-nav-btn" disabled>&gt;</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 9. BANK APPROVALS VIEW -->
+        <section id="view-bank" class="page-view">
+          <div class="page-header">
+            <h1 class="page-title">Bank approvals</h1>
+            <p class="page-subtitle">Review and approve members' bank detail changes.</p>
+          </div>
+
+          <div class="centered-empty-card">
+            <div class="empty-state-icon eye-icon-bg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h2 class="empty-title">Nothing to review</h2>
+            <p class="empty-desc">Bank change requests will show up here.</p>
+          </div>
+        </section>
+
+        <!-- 10. TEAMS VIEW -->
+        <section id="view-teams" class="page-view">
+          <div class="page-header-with-action">
+            <div>
+              <h1 class="page-title">Teams</h1>
+              <p class="page-subtitle">Groups, their members, and who leads them.</p>
+            </div>
+            <button class="btn btn-primary" onclick="openModal('teamModal')">+ New team</button>
+          </div>
+
+          <div class="centered-empty-card" id="teamsEmptyCard">
+            <div class="empty-state-icon user-icon-bg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h2 class="empty-title">No teams yet</h2>
+            <p class="empty-desc">Create a team to group people and set a lead.</p>
+            <button class="btn btn-primary" onclick="openModal('teamModal')">+ New team</button>
+          </div>
+
+          <div class="teams-grid-wrapper hidden" id="teamsGridWrapper">
+            <!-- Team cards in demo mode -->
+          </div>
+        </section>
+
+        <!-- 11. ROLES & PERMISSIONS VIEW -->
+        <section id="view-roles" class="page-view">
+          <div class="page-header-with-action">
+            <div>
+              <h1 class="page-title">Roles & Permissions</h1>
+              <p class="page-subtitle">Owner is the one fixed role, with full access. Every other role is yours: name it, choose what it can see and do, and delete it when nobody needs it.</p>
+            </div>
+            <button class="btn btn-primary" onclick="openModal('roleModal')">+ New role</button>
+          </div>
+
+          <!-- Role selector cards -->
+          <div class="roles-pills-row">
+            <div class="role-selector-card active" onclick="selectRole('Owner', this)">
+              <div class="role-card-title">Owner</div>
+              <div class="role-card-sub">Fixed, full access</div>
+            </div>
+            <div class="role-selector-card" onclick="selectRole('Member', this)">
+              <div class="role-card-header-line">
+                <span class="role-card-title">Member</span>
+                <span class="badge badge-amber">New invites</span>
+              </div>
+              <div class="role-card-sub">0 people</div>
+            </div>
+          </div>
+
+          <!-- Notice banner -->
+          <div class="banner-notice" id="roleNoticeBanner">
+            Owner always has every permission. It cannot be renamed, changed or deleted.
+          </div>
+
+          <!-- Team & People Permissions Section -->
+          <div class="card permissions-section-card">
+            <div class="perm-section-header">
+              <h3 class="perm-section-title">Team & People</h3>
+              <span class="badge badge-gray" id="teamPeopleBadge">Full access</span>
+            </div>
+
+            <div class="perm-group">
+              <div class="perm-label">Employees</div>
+              <div class="perm-checkboxes">
+                <label class="custom-checkbox"><input type="checkbox" checked disabled> <span class="checkmark"></span> View</label>
+                <label class="custom-checkbox"><input type="checkbox" checked disabled> <span class="checkmark"></span> Invite</label>
+                <label class="custom-checkbox"><input type="checkbox" checked disabled> <span class="checkmark"></span> Edit</label>
+                <label class="custom-checkbox"><input type="checkbox" checked disabled> <span class="checkmark"></span> Remove</label>
+              </div>
+            </div>
+
+            <div class="perm-group">
+              <div class="perm-label">Employee history</div>
+              <div class="perm-checkboxes">
+                <label class="custom-checkbox"><input type="checkbox" checked disabled> <span class="checkmark"></span> View</label>
+                <label class="custom-checkbox"><input type="checkbox" checked disabled> <span class="checkmark"></span> Export</label>
+              </div>
+            </div>
+
+            <div class="perm-group">
+              <div class="perm-label">Teams</div>
+              <div class="perm-checkboxes">
+                <label class="custom-checkbox"><input type="checkbox" checked disabled> <span class="checkmark"></span> View</label>
+                <label class="custom-checkbox"><input type="checkbox" checked disabled> <span class="checkmark"></span> Create</label>
+                <label class="custom-checkbox"><input type="checkbox" checked disabled> <span class="checkmark"></span> Edit</label>
+                <label class="custom-checkbox"><input type="checkbox" checked disabled> <span class="checkmark"></span> Delete</label>
+              </div>
+            </div>
+
+            <div class="perm-group">
+              <div class="perm-label">Attendance</div>
+              <div class="perm-checkboxes">
+                <label class="custom-checkbox"><input type="checkbox" checked disabled> <span class="checkmark"></span> View</label>
+                <label class="custom-checkbox"><input type="checkbox" checked disabled> <span class="checkmark"></span> Edit hours</label>
+              </div>
+            </div>
+
+            <div class="perm-group">
+              <div class="perm-label">Employee bank details (sensitive)</div>
+              <div class="perm-checkboxes">
+                <label class="custom-checkbox"><input type="checkbox" checked disabled> <span class="checkmark"></span> View bank details</label>
+                <label class="custom-checkbox"><input type="checkbox" checked disabled> <span class="checkmark"></span> Approve bank changes</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Work Permissions Section -->
+          <div class="card permissions-section-card mt-4">
+            <div class="perm-section-header">
+              <h3 class="perm-section-title">Work</h3>
+              <span class="badge badge-gray">Full access</span>
+            </div>
+
+            <div class="perm-group">
+              <div class="perm-label">Projects</div>
+              <div class="perm-checkboxes">
+                <label class="custom-checkbox"><input type="checkbox" checked disabled> <span class="checkmark"></span> View</label>
+                <label class="custom-checkbox"><input type="checkbox" checked disabled> <span class="checkmark"></span> Create</label>
+                <label class="custom-checkbox"><input type="checkbox" checked disabled> <span class="checkmark"></span> Edit</label>
+                <label class="custom-checkbox"><input type="checkbox" checked disabled> <span class="checkmark"></span> Delete</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 12. ANALYTICS VIEW -->
+        <section id="view-analytics" class="page-view">
+          <div class="page-header-with-action">
+            <div>
+              <h1 class="page-title">Analytics</h1>
+              <p class="page-subtitle">Company trends across attendance, leave, projects, and teams. Showing: This month</p>
+            </div>
+            <select class="select-pill" onchange="showToast('Range updated: ' + this.value)">
+              <option>This month</option>
+              <option>Last month</option>
+              <option>Last 90 days</option>
+              <option>This year</option>
+            </select>
+          </div>
+
+          <div class="stats-grid-5">
+            <div class="stat-card">
+              <div class="stat-icon-wrapper user-icon-bg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="stat-value" id="anaAttendance">0%</div>
+              <div class="stat-label">Avg attendance</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-wrapper clock-icon-bg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="stat-value" id="anaOvertime">0h</div>
+              <div class="stat-label">Overtime (range)</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-wrapper calendar-icon-bg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div class="stat-value" id="anaLeaveDays">0</div>
+              <div class="stat-label">Leave days taken</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-wrapper board-icon-bg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><line x1="9" y1="4" x2="9" y2="20"/><line x1="15" y1="4" x2="15" y2="20"/></svg>
+              </div>
+              <div class="stat-value" id="anaTasksCompleted">0</div>
+              <div class="stat-label">Tasks completed</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-wrapper chart-icon-bg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              </div>
+              <div class="stat-value" id="anaActiveProjects">0</div>
+              <div class="stat-label">Active projects</div>
+            </div>
+          </div>
+
+          <!-- Attendance trend card -->
+          <div class="card mt-4">
+            <div class="card-heading">Attendance trend</div>
+            <div class="card-subhead">Share of the team present, by week.</div>
+            <div class="empty-banner-box" id="anaTrendBox">
+              No attendance recorded in this range yet.
+            </div>
+          </div>
+
+          <!-- Two split cards: Leave usage & Tasks by team -->
+          <div class="grid-2-col mt-4">
+            <div class="card">
+              <div class="card-heading">Leave usage</div>
+              <div class="card-subhead">Paid vs non-paid days taken across the company.</div>
+              <div class="leave-usage-bars">
+                <div class="usage-row">
+                  <span class="usage-label">Paid</span>
+                  <div class="progress-track"><div class="progress-fill" style="width: 0%;"></div></div>
+                  <span class="usage-days">0 days</span>
+                </div>
+                <div class="usage-row">
+                  <span class="usage-label">Non-paid</span>
+                  <div class="progress-track"><div class="progress-fill" style="width: 0%;"></div></div>
+                  <span class="usage-days">0 days</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-heading">Tasks by team</div>
+              <div class="card-subhead">Where the work sits right now.</div>
+              <div class="empty-banner-box" id="anaTasksBox">
+                Nothing to show yet.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 13. ACTIVITY LOG VIEW -->
+        <section id="view-audit" class="page-view">
+          <div class="page-header">
+            <h1 class="page-title">Activity log</h1>
+            <p class="page-subtitle">A record of admin actions in your company: invites, role and team changes, suspensions, removals, leave decisions, and channel changes.</p>
+          </div>
+
+          <div class="centered-empty-card" id="auditEmptyCard">
+            <div class="empty-state-icon history-icon-bg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 8 14"/><path d="M4 12a8 8 0 0 1 8-8"/></svg>
+            </div>
+            <h2 class="empty-title">Nothing yet</h2>
+            <p class="empty-desc">Admin actions will appear here as they happen.</p>
+          </div>
+
+          <div class="audit-list-wrapper hidden" id="auditListWrapper">
+            <!-- Populated in demo mode -->
+          </div>
+        </section>
+
+        <!-- 14. SETTINGS VIEW -->
+        <section id="view-settings" class="page-view">
+          <div class="page-header">
+            <h1 class="page-title">Company settings</h1>
+            <p class="page-subtitle">Leave types, office hours, and holidays.</p>
+          </div>
+
+          <!-- Card 1: Company plan & billing -->
+          <div class="card settings-card">
+            <div class="card-heading">Company plan & billing</div>
+            <div class="card-subhead">Current plan: Free. Choose a paid plan to subscribe.</div>
+
+            <div class="pricing-plans-grid">
+              <!-- Free -->
+              <div class="pricing-card current-plan-card">
+                <span class="current-plan-badge">Current</span>
+                <h3 class="plan-name">Free</h3>
+                <div class="plan-price"><span class="price-val">$0</span> <span class="price-cycle">/ mo</span></div>
+                <div class="plan-limits">Up to 1 member</div>
+                <button class="btn btn-plan-disabled" disabled>Current plan</button>
+              </div>
+
+              <!-- Starter -->
+              <div class="pricing-card">
+                <h3 class="plan-name">Starter</h3>
+                <div class="plan-price"><span class="price-val">$4.99</span> <span class="price-cycle">/ mo</span></div>
+                <div class="plan-limits">Up to 10 members</div>
+                <button class="btn btn-primary" onclick="showToast('Starter plan checkout initiated')">Subscribe</button>
+              </div>
+
+              <!-- Growth -->
+              <div class="pricing-card">
+                <h3 class="plan-name">Growth</h3>
+                <div class="plan-price"><span class="price-val">$9.99</span> <span class="price-cycle">/ mo</span></div>
+                <div class="plan-limits">Up to 50 members</div>
+                <button class="btn btn-primary" onclick="showToast('Growth plan checkout initiated')">Subscribe</button>
+              </div>
+
+              <!-- Scale -->
+              <div class="pricing-card">
+                <h3 class="plan-name">Scale</h3>
+                <div class="plan-price"><span class="price-val">$14.99</span> <span class="price-cycle">/ mo</span></div>
+                <div class="plan-limits">Unlimited members</div>
+                <button class="btn btn-primary" onclick="showToast('Scale plan checkout initiated')">Subscribe</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Leave categories -->
+          <div class="card settings-card mt-4">
+            <div class="card-heading">Leave categories</div>
+            <div class="card-subhead">The kinds of leave people can pick, such as Sick or Casual. Whether a request is paid is chosen on the request itself and draws from the one paid allowance below, so a category is just a label.</div>
+
+            <div class="leave-categories-box">
+              <div class="category-table-header">CATEGORY</div>
+              <div class="category-inputs-list" id="categoryInputsList">
+                <div class="category-row">
+                  <input type="text" class="input-text" value="Annual">
+                  <button class="btn-remove-category" onclick="removeCategory(this)">✕</button>
+                </div>
+                <div class="category-row">
+                  <input type="text" class="input-text" value="Sick">
+                  <button class="btn-remove-category" onclick="removeCategory(this)">✕</button>
+                </div>
+                <div class="category-row">
+                  <input type="text" class="input-text" value="Casual">
+                  <button class="btn-remove-category" onclick="removeCategory(this)">✕</button>
+                </div>
+                <div class="category-row">
+                  <input type="text" class="input-text" value="Unpaid">
+                  <button class="btn-remove-category" onclick="removeCategory(this)">✕</button>
+                </div>
+              </div>
+              <button class="btn btn-outline-sm mt-3" onclick="addCategoryRow()">+ Add category</button>
+            </div>
+          </div>
+
+          <!-- Card 3: Paid allowance & Working days -->
+          <div class="card settings-card mt-4">
+            <div class="card-heading">Paid allowance</div>
+            <div class="form-group mt-3">
+              <label class="form-label">Paid leave days per year</label>
+              <input type="number" class="input-text max-w-sm" value="10" id="paidLeaveDays">
+              <div class="form-help">Total paid days each person gets per year, usable in any category.</div>
+            </div>
+
+            <div class="form-help text-muted-lead mt-3">
+              Signing in later than this asks for a reason. Signing in before the start, after the end, a second time the same day, or on a non-working day also asks for a reason.
+            </div>
+
+            <div class="form-group mt-4">
+              <label class="form-label">Working days</label>
+              <div class="days-pills-row">
+                <button class="day-pill active" onclick="toggleDayPill(this)">Sun</button>
+                <button class="day-pill active" onclick="toggleDayPill(this)">Mon</button>
+                <button class="day-pill active" onclick="toggleDayPill(this)">Tue</button>
+                <button class="day-pill active" onclick="toggleDayPill(this)">Wed</button>
+                <button class="day-pill active" onclick="toggleDayPill(this)">Thu</button>
+                <button class="day-pill" onclick="toggleDayPill(this)">Fri</button>
+                <button class="day-pill" onclick="toggleDayPill(this)">Sat</button>
+              </div>
+              <div class="form-help">Days the office is open. Signing in on any other day is treated as a non-working day (weekend or holiday).</div>
+            </div>
+
+            <div class="form-group mt-4">
+              <label class="form-label">Company timezone</label>
+              <select class="input-select max-w-md" id="companyTimezone">
+                <option selected>Asia/Dhaka (UTC+6)</option>
+                <option>Asia/Kolkata (UTC+5:30)</option>
+                <option>Asia/Dubai (UTC+4)</option>
+                <option>Europe/London (UTC+1)</option>
+                <option>America/New_York (UTC-4)</option>
+              </select>
+              <div class="form-help">Sign-in times, office hours, and reports use this timezone.</div>
+            </div>
+          </div>
+
+          <!-- Card 4: Holidays -->
+          <div class="card settings-card mt-4">
+            <div class="card-heading">Holidays</div>
+            <div class="card-subhead">Festivals and other days off. Leave requests skip these days, so a holiday inside a leave range does not use anyone's balance.</div>
+
+            <div class="holiday-form-row mt-3">
+              <div class="form-group flex-1">
+                <label class="form-label">From</label>
+                <input type="text" placeholder="dd/mm/yyyy" class="input-text" id="holidayFrom">
+              </div>
+              <div class="form-group flex-1">
+                <label class="form-label">To (optional)</label>
+                <input type="text" placeholder="dd/mm/yyyy" class="input-text" id="holidayTo">
+              </div>
+            </div>
+
+            <div class="form-group mt-3">
+              <label class="form-label">Name</label>
+              <div class="input-button-row">
+                <input type="text" placeholder="Eid, Victory Day..." class="input-text" id="holidayName">
+                <button class="btn btn-outline" onclick="addHolidayDemo()">Add holiday</button>
+              </div>
+              <div class="form-help">For a multi-day holiday like Eid, set a To date and each day in the range is added. No holidays added yet.</div>
+            </div>
+
+            <div id="holidaysListContainer"></div>
+          </div>
+
+          <div class="settings-actions-footer mt-4">
+            <button class="btn btn-primary" onclick="showToast('Settings saved successfully!')">Save settings</button>
+          </div>
+        </section>
+
+        <!-- 15. PROFILE VIEW -->
+        <section id="view-profile" class="page-view">
+          <div class="page-header">
+            <h1 class="page-title">Profile & account</h1>
+            <p class="page-subtitle">Manage your name, login, photo, and security.</p>
+          </div>
+
+          <!-- User details card -->
+          <div class="card">
+            <div class="profile-avatar-row">
+              <div class="profile-avatar-large">MD</div>
+              <div class="profile-avatar-actions">
+                <button class="btn btn-outline-sm" onclick="showToast('Choose image dialog opened')">Upload photo</button>
+                <div class="form-help">PNG or JPG, square works best.</div>
+              </div>
+            </div>
+
+            <div class="form-grid-2 mt-4">
+              <div class="form-group">
+                <label class="form-label">Full name</label>
+                <input type="text" class="input-text" value="mr diu" id="profileFullName">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" class="input-text" value="kn766395@gmail.com" id="profileEmail">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone</label>
+                <input type="tel" class="input-text" placeholder="" id="profilePhone">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Address</label>
+                <input type="text" class="input-text" placeholder="" id="profileAddress">
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <button class="btn btn-primary" onclick="showToast('Profile changes saved!')">Save changes</button>
+            </div>
+          </div>
+
+          <!-- Bank details card -->
+          <div class="card mt-4">
+            <div class="card-heading">Bank details</div>
+            <div class="card-subhead">Only you can edit your bank details. A change goes to an approver before it takes effect.</div>
+
+            <div class="form-grid-2 mt-4">
+              <div class="form-group">
+                <label class="form-label">Bank name</label>
+                <input type="text" class="input-text">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Account holder name</label>
+                <input type="text" class="input-text">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Account number</label>
+                <input type="text" class="input-text">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Branch name</label>
+                <input type="text" class="input-text">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Routing number</label>
+                <input type="text" class="input-text">
+              </div>
+            </div>
+          </div>
+
+          <!-- Notification preferences card -->
+          <div class="card mt-4">
+            <div class="notification-pref-item">
+              <div class="notif-text">
+                <div class="notif-title">Your leave request approved or rejected</div>
+                <div class="notif-desc">When an approver decides your request.</div>
+              </div>
+              <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+            </div>
+
+            <div class="notification-pref-item">
+              <div class="notif-text">
+                <div class="notif-title">A task is assigned to you</div>
+                <div class="notif-desc">When someone assigns you a task.</div>
+              </div>
+              <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+            </div>
+
+            <div class="notification-pref-item">
+              <div class="notif-text">
+                <div class="notif-title">A task you are on changes status</div>
+                <div class="notif-desc">When a task you assigned or watch moves.</div>
+              </div>
+              <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+            </div>
+
+            <div class="notification-pref-item">
+              <div class="notif-text">
+                <div class="notif-title">You are mentioned in chat</div>
+                <div class="notif-desc">When someone mentions you.</div>
+              </div>
+              <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+            </div>
+
+            <div class="notification-pref-item">
+              <div class="notif-text">
+                <div class="notif-title">Extra time requests and decisions</div>
+                <div class="notif-desc">When someone asks for more time on a task you created, or your own request is decided.</div>
+              </div>
+              <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+            </div>
+
+            <div class="notification-pref-item">
+              <div class="notif-text">
+                <div class="notif-title">New company announcements</div>
+                <div class="notif-desc">When someone posts an announcement.</div>
+              </div>
+              <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+            </div>
+
+            <div class="notification-pref-item">
+              <div class="notif-text">
+                <div class="notif-title">A leave request needs your approval</div>
+                <div class="notif-desc">When someone asks for leave.</div>
+              </div>
+              <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+            </div>
+
+            <div class="notification-pref-item">
+              <div class="notif-text">
+                <div class="notif-title">Weekly digest</div>
+                <div class="notif-desc">A Monday summary of your company.</div>
+              </div>
+              <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+            </div>
+
+            <div class="mt-4">
+              <button class="btn btn-primary" onclick="showToast('Notification preferences saved!')">Save preferences</button>
+            </div>
+          </div>
+
+          <!-- Security card -->
+          <div class="card mt-4">
+            <div class="card-heading">Security</div>
+            <div class="card-subhead mt-2">You sign in with Google, so there is no password to set here. Manage your login through your Google account.</div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE MODALS -->
+
+  <!-- Modal: Invite Employee -->
+  <div class="modal-overlay" id="employeeModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Invite employee</h3>
+        <button class="modal-close-btn" onclick="closeModal('employeeModal')">✕</button>
+      </div>
+      <form onsubmit="handleInviteEmployee(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="input-text" id="inviteName" required placeholder="e.g. Sarah Jenkins">
+          </div>
+          <div class="form-group mt-3">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="input-text" id="inviteEmail" required placeholder="sarah@example.com">
+          </div>
+          <div class="form-group mt-3">
+            <label class="form-label">Role</label>
+            <select class="input-select" id="inviteRole">
+              <option>Member</option>
+              <option>Team Lead</option>
+              <option>HR Manager</option>
+            </select>
+          </div>
+          <div class="form-group mt-3">
+            <label class="form-label">Team</label>
+            <select class="input-select" id="inviteTeam">
+              <option>Engineering</option>
+              <option>Product</option>
+              <option>Marketing</option>
+              <option>Operations</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('employeeModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Send Invite</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: New Project -->
+  <div class="modal-overlay" id="projectModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Create new project</h3>
+        <button class="modal-close-btn" onclick="closeModal('projectModal')">✕</button>
+      </div>
+      <form onsubmit="handleCreateProject(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Project Name</label>
+            <input type="text" class="input-text" id="projectName" required placeholder="e.g. Website Redesign 2026">
+          </div>
+          <div class="form-group mt-3">
+            <label class="form-label">Description</label>
+            <textarea class="input-textarea" id="projectDesc" placeholder="Brief project summary..."></textarea>
+          </div>
+          <div class="form-group mt-3">
+            <label class="form-label">Lead</label>
+            <select class="input-select" id="projectLead">
+              <option>mr diu (Owner)</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('projectModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Create Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Post Announcement -->
+  <div class="modal-overlay" id="announcementModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Post announcement</h3>
+        <button class="modal-close-btn" onclick="closeModal('announcementModal')">✕</button>
+      </div>
+      <form onsubmit="handlePostAnnouncement(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Title</label>
+            <input type="text" class="input-text" id="announcementTitle" required placeholder="e.g. Office closed for public holiday">
+          </div>
+          <div class="form-group mt-3">
+            <label class="form-label">Target Audience</label>
+            <select class="input-select" id="announcementAudience">
+              <option>All Company</option>
+              <option>Engineering Team</option>
+              <option>Marketing Team</option>
+            </select>
+          </div>
+          <div class="form-group mt-3">
+            <label class="form-label">Announcement Content</label>
+            <textarea class="input-textarea" id="announcementBody" rows="4" required placeholder="Write your announcement details here..."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('announcementModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Publish Announcement</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: New Team -->
+  <div class="modal-overlay" id="teamModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Create new team</h3>
+        <button class="modal-close-btn" onclick="closeModal('teamModal')">✕</button>
+      </div>
+      <form onsubmit="handleCreateTeam(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Team Name</label>
+            <input type="text" class="input-text" id="teamNameInput" required placeholder="e.g. Core Engineering">
+          </div>
+          <div class="form-group mt-3">
+            <label class="form-label">Team Lead</label>
+            <select class="input-select" id="teamLeadSelect">
+              <option>mr diu</option>
+            </select>
+          </div>
+          <div class="form-group mt-3">
+            <label class="form-label">Description</label>
+            <input type="text" class="input-text" id="teamDescInput" placeholder="What this team handles...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('teamModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Create Team</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: New Role -->
+  <div class="modal-overlay" id="roleModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Create new role</h3>
+        <button class="modal-close-btn" onclick="closeModal('roleModal')">✕</button>
+      </div>
+      <form onsubmit="handleCreateRole(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Role Name</label>
+            <input type="text" class="input-text" id="roleNameInput" required placeholder="e.g. Project Manager">
+          </div>
+          <div class="form-group mt-3">
+            <label class="form-label">Description</label>
+            <input type="text" class="input-text" id="roleDescInput" placeholder="Role scope and authority...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('roleModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Create Role</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
